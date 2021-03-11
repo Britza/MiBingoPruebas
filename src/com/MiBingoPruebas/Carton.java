@@ -1,40 +1,42 @@
 package com.MiBingoPruebas;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
-import java.util.Stack;
 
 public class Carton {
 
-    public static void generarCarton(int[][]carton){
-        int k=0;
-        Random aleatorio=new Random();
-        for (int i=0;i<carton.length;i++){
-            for (int j=0;j<carton[i].length;j++){
-                if (i==0){
-                    if (j==0) {
-                        carton[i][j] = aleatorio.nextInt(7)  + 1; // La priemra columna tendra siempre números del 0 al 9
-                    }else{
-                            carton[i][j] = aleatorio.nextInt(8) + (10 *j); // El resto de columnas tienen números que van desde j*10+un número aleatorio del 1 al 9 ejemplo columna cuatro del 40 al 49
-                        }
-                    }else {
-                    if (i==1){
-                        k=0;
-                    }else {
+    public static void generarCarton(int[][] carton) {
+        int k = 0;
+        Random aleatorio = new Random();
+        for (int i = 0; i < carton.length; i++) {
+            for (int j = 0; j < carton[i].length; j++) {
+                if (i == 0) {
+                    if (j == 0) {
+                        carton[i][j] = aleatorio.nextInt(7) + 1; // La priemra columna tendra siempre números del 0 al 9
+                    } else {
+                        carton[i][j] = aleatorio.nextInt(8) + (10 * j); // El resto de columnas tienen números que van desde j*10+un número aleatorio del 1 al 9 ejemplo columna cuatro del 40 al 49
+                    }
+                } else {
+                    if (i == 1) {
+                        k = 0;
+                    } else {
                         if (i == 2) {
                             k = 1;
                         }
                     }
-                        carton[i][j]= aleatorio.nextInt(9+k)+(10*j);
-                        do {
-                            carton[i][j]=aleatorio.nextInt(9+k)+(10*j);
-                        }while (carton[i][j]<=carton[i-1][j]);
+                    carton[i][j] = aleatorio.nextInt(9 + k) + (10 * j);
+                    do {
+                        carton[i][j] = aleatorio.nextInt(9 + k) + (10 * j);
+                    } while (carton[i][j] <= carton[i - 1][j]);
 
                 }
-                }
-                carton[2][8]++;
             }
+            carton[2][8]++;
         }
+    }
+
     public static int bombos(int[][] carton) {
         //ponemos la posicion del bombo en 0
         int bombo = 0;
@@ -68,40 +70,56 @@ public class Carton {
         }
     }
 
-   public static int nulos(int[][]carton){
-        int nulo=0;
-       for (int i=0;i<3;i++){
-                 carton[i][numerosSinRepeticion().pop()]=nulo;
-                 carton[i][numerosSinRepeticion().pop()]=nulo;
-                 carton[i][numerosSinRepeticion().pop()]=nulo;
-                 carton[i][numerosSinRepeticion().pop()]=nulo;
-       }
-       return nulo;
-   }
+    public static int nulos(int[] aleatorios, int[][] carton) {
+        int nulo = 0;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 9; j++) {
+                carton[i][aleatorios[i]] = nulo;
+                carton[i][aleatorios[i]] = nulo;
+                carton[i][aleatorios[i]] = nulo;
+                carton[i][aleatorios[i]] = nulo;
+                carton[i][aleatorios[i]] = nulo;
 
-   public static void visualizarPila(){
-       System.out.println(numerosSinRepeticion().pop());
-       System.out.println(numerosSinRepeticion().pop());
-       System.out.println(numerosSinRepeticion().pop());
+            }
+        }
+        return nulo;
+    }
 
-
-   }
-
-
-
-    public static Stack<Integer> numerosSinRepeticion(){
+    /*
+    public static Stack<Integer> numerosSinRepeticion() {
         int num;
-        Random aleatorio=new Random();
-        Stack < Integer > aleatorios = new Stack< Integer >();
+        Random aleatorio = new Random();
+        Stack<Integer> aleatorios = new Stack<Integer>();
         for (int i = 0; i < 4; i++) {
-            num= aleatorio.nextInt(10);
+            num = aleatorio.nextInt(10);
             while (aleatorios.contains(num)) {
                 num = aleatorio.nextInt(10);
             }
             aleatorios.push(num);
         }
-        System.out.println("\nNúm. aleatorios sin repetición:");
-        System.out.println(aleatorios.toString());
+        //  System.out.println("\nNúm. aleatorios sin repetición:");
+        //  System.out.println(aleatorios.toString());
+        return aleatorios;
+    }
+
+     */
+
+    public static int[] numerosAleatorios() {
+        Random aleatorio = new Random();
+        int[] aleatorios = new int[4];
+        for (int i = 0; i < 4; i++) {
+            aleatorios[i] = aleatorio.nextInt(10);
+            for (int j = i+1; j < 5; j++) {
+                while (aleatorios[i] == aleatorios[j]) {
+                    ArrayList<Object> lista = new ArrayList<>(Arrays.asList(aleatorios));
+                    lista.remove(i);
+                    aleatorios[i] = aleatorio.nextInt(10);
+                }
+            }
+            System.out.println(aleatorios[i]);
+        }
+
+        System.out.println("\n"+aleatorios[3]);
         return aleatorios;
     }
 }
