@@ -32,7 +32,7 @@ public class Carton {
 
                 }
                 }
-                carton[2][8]++;
+                //carton[2][8]++;
             }
         }
     public static int bombos(int[][] carton) {
@@ -97,6 +97,7 @@ public class Carton {
             num= aleatorio.nextInt(10);
             while (aleatorios.contains(num)) {
                 num = aleatorio.nextInt(10);
+
             }
             aleatorios.push(num);
         }
