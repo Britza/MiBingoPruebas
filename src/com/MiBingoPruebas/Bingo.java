@@ -3,19 +3,20 @@ package com.MiBingoPruebas;
 public class Bingo {
 
     public static void main(String[] args) {
-        int bombo=0;
-        int[][] carton=new int[3][9];
-/*
+        int[][][]carton=new int[3][9][1];
+        int [][][]matrizNumerosNoLidos=new int[3][9][1];
         Carton.generarCarton(carton);
-        Carton.nulos(Carton.numerosAleatorios(),carton);
+        Carton.bombos(carton);
         Carton.imprimirCarton(carton);
-*/
-
-
-Carton.numerosAleatorios();
-
-
-       // Carton.visualizarPila();
+        /*
+        System.out.println("\n");
+        Carton.matrizNumerosNoLeidos(matrizNumerosNoLidos);
+        System.out.println("\n");
+        Bombo.comprobarNumeroBombo(Bombo.generarNumeroAleatorio(),carton,matrizNumerosNoLidos);
+        System.out.println("\n");
+        Carton.imprimirCarton(matrizNumerosNoLidos);
+        */
+        System.out.println();
 
     }
 
