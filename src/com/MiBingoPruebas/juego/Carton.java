@@ -3,7 +3,21 @@ package com.MiBingoPruebas.juego;
 
 import java.util.Random;
 
-public class Carton {
+public class    Carton {
+    private static Carton instance = null;
+
+
+    public Carton() {
+    }
+
+    public static Carton getInstace() {
+        if (instance==null){
+            instance=new Carton();
+
+        }
+        return instance;
+
+    }
 
     public static void generarCarton(int[][] carton) {
         int k = 0;

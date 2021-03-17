@@ -1,40 +1,30 @@
 package com.MiBingoPruebas.juego;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Random;
-import java.util.Set;
 
 public class Bombo {
 
-    //No se pueden repetir hay que solucionarlo
-    public static int generarNumeroAleatorio() {
-        Random aleatorio = new Random();
-        int num = aleatorio.nextInt(91) + 1;
-        System.out.println("\n\n " + num);
-        return num;
-    }
 
-
-  /*  public static void generarNumeroAleatorio() {
-        int aleatorio;
-        Random rnd = new Random();
-        Set<Integer> generados = new HashSet<>();
-        for (int i = 1; i <= 90; i++) {
-            aleatorio = -1;
-            boolean generado = false;
-            while (!generado) {
-                int posible = rnd.nextInt();
-                if (!generados.contains(posible)) {
-                    generados.add(posible);
-                    aleatorio = posible;
-                    generado = true;
+    public static int numerosSinRepeticion(){
+        int i=0;
+        Random aleatorio =new Random();
+        int aleatorios[]=new int[90];
+        aleatorios[i]=aleatorio.nextInt(90)+1;
+        for (i=1;i<aleatorios.length;i++) {
+            aleatorios[i] = aleatorio.nextInt(90) + 1;
+            for (int j = 0; j < i; j++) {
+                if (aleatorios[i] == aleatorios[j]) {
+                    i--;
                 }
             }
-            //usa el v
         }
 
-   */
+        int numeroAleatorio=aleatorios[aleatorio.nextInt(90)];
+        System.out.println("\n\n "+numeroAleatorio);
+        return numeroAleatorio;
+
+    }
 
 
     public static void comprobarNumeroBombo(int num, int[][] carton, int[][] matrizNumerosNoLidos) {
@@ -55,14 +45,16 @@ public class Bombo {
     }
 
     public static void comprobarBingo(int[][] matrizNumerosNoLeidos) {
+        boolean bingo=false;
         Auxiliar matrizAuxiliarBingo = Auxiliar.getInstace();
         if (Arrays.deepEquals(matrizAuxiliarBingo.getMatrizBingo(), matrizNumerosNoLeidos)) {
+            bingo=true;
             System.out.println("Bingo");
         } else
             System.out.println("Vuelve a intentarlo la proxima vez");
     }
 
-    public static void comprobarLinea(int[][] matriz) {
+    public static boolean comprobarLinea(int[][] matriz) {
         int cont = 0;
         boolean linea = false;
         for (int i = 0; i < matriz.length; i++) {
@@ -82,6 +74,7 @@ public class Bombo {
             System.out.println("LINEA");
         } else
             System.out.println("Sigue intentandolo");
+        return linea;
 
     }
 }
