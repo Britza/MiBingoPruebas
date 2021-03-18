@@ -3,20 +3,30 @@ package com.MiBingoPruebas.juego;
 
 import java.util.Random;
 
-public class    Carton {
+public class Carton {
+
     private static Carton instance = null;
+    private static int[][] carton = new int[3][9];
 
 
     public Carton() {
     }
 
     public static Carton getInstace() {
-        if (instance==null){
-            instance=new Carton();
+        if (instance == null) {
+            instance = new Carton();
 
         }
         return instance;
 
+    }
+
+    public static int[][] getCarton() {
+        return carton;
+    }
+
+    public static void setCarton(int[][] carton) {
+        Carton.carton = carton;
     }
 
     public static void generarCarton(int[][] carton) {
@@ -78,11 +88,22 @@ public class    Carton {
             System.out.println(" \n ");
             for (int j = 0; j < carton[i].length; j++) {
                 System.out.printf("%3d ", carton[i][j]); //%imprime una variable, utiliza al menos 3 espacios para mostrar rellenando segun sea necesrio ,d la variable será entera
+
             }
         }
     }
 
+    public static void comprarCarton() {
+        Carton carton = Carton.getInstace();
+        Auxiliar matrizNumerosNoLidos = Auxiliar.getInstace();
+        Carton.imprimirCarton(matrizNumerosNoLidos.getMatrizNumerosNoLidos());
+        System.out.println("\n\n");
+        Carton.generarCarton(carton.getCarton());
+        Carton.bombos(carton.getCarton());
+        Carton.imprimirCarton(carton.getCarton());
 
+
+    }
 
 }
 
