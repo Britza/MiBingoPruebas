@@ -1,4 +1,4 @@
-package com.MiBingoPruebas.juego;
+/*package com.MiBingoPruebas.juego;
 
 import javax.swing.*;
 
@@ -45,5 +45,5 @@ public class Bingo {
     }
 
 
-}
+}*/
 
