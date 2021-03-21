@@ -1,12 +1,14 @@
 # PROYECTO BINGO
 ## Descripción :
 Juego Bingo de modalidad 90 (las bolas del bombo van desde 1 al 90)
-## Esquema
+## Esquema :
 #### 1. Crear cartones.
 Los cartones se crean con una matriz de numeros aleatorios ordenados. Se utiliza la clase Random.
 Los espacios nulos se le añaden después recorriendo la matriz con un for. (Se añaden 0 como espacios nulos).
 #### 2. Generar nº aleatorios.
-Se utiliza la clase Random para generar los números aleatorios y se guardan en un array.
+Se utiliza la clase Random para generar los números aleatorios y se guardan en una tabla hashet que implementa la interfaz set para comprobar si los numeros se reptien.
+import java.util.HashSet;
+import java.util.Set;
 #### 3. Visualizar cartones.
 Los cartones se visualizan con un system.printfn("3%d",carton); que permite visualizar por consola el
 carton separado y en forma matricial.
