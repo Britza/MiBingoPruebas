@@ -2,8 +2,9 @@ package com.MiBingoPruebas.juego;
 
 import com.MiBingoPruebas.cartera.Cartera;
 import metodos.Metodos;
-
-import java.util.*;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
 
 public class Bombo {
     /**
@@ -13,22 +14,10 @@ public class Bombo {
      * @return devuelve un numero aleatorio.
      */
 
-    public static int numerosSinRepeticion(){
-        Random random=new Random();
-        int numAleatorio = 0;
-        //Conjunto de números ya utilizados
-        Set <Integer> numerosUtilizados=new HashSet<>();
-        //Vamos a   generar numeros aleatorios 20
-        while (numerosUtilizados.size()<90){
-            //Vamos a generar un numero entre el 1 y el 90
-             numAleatorio= random.nextInt(90)+1;
-            if (!numerosUtilizados.contains(numAleatorio)){
-               // System.out.println(numAleatorio);
-                numerosUtilizados.add(numAleatorio);
-            }
-        }
-            return numAleatorio;
+    public static void numerosSinRepeticion() {
+
     }
+
 
     /**
      * Método que recibe como parametros un número sacado por el bombo , el carton y una matriz auxiliar. Si el número
@@ -46,7 +35,7 @@ public class Bombo {
             for (int j = 0; j < carton[i].length; j++) {
                 if (num == carton[i][j]) {
                     atopado = true;
-                    System.out.println(num+"\nAtopado");
+                    System.out.println(num + "\nAtopado");
                     matrizNumerosNoLidos[i][j] = 1;
                     // return atopado;
                 }
@@ -54,7 +43,7 @@ public class Bombo {
         }
         if (!atopado) {
 
-            System.out.println(num+"\nO numero non está no arrai");
+            System.out.println(num + "\nO numero non está no arrai");
         }
     }
 
@@ -125,41 +114,54 @@ public class Bombo {
     public static void jugar(int num) {
         Carton carton = Carton.getInstace();
         Auxiliar matrizAuxiliar = Auxiliar.getInstace();
-
+        Random random = new Random();
+        int numAleatorio = 0,numAleatorio2=0;
         switch (num) {
             case 1:
                 Carton.comprarCarton();
                 break;
             case 2:
-                int numAleatorio=numerosSinRepeticion();
-                Bombo.comprobarNumeroBombo(numAleatorio, carton.getCarton(), matrizAuxiliar.getMatrizNumerosNoLidos());
+                    //Conjunto de números ya utilizados
+                    Set<Integer> numerosUtilizados = new HashSet<>();
+                    //Vamos a   generar numeros aleatorios
+                     while (numerosUtilizados.size() < 89) {
+                         //Vamos a generar un numero entre el 1 y el 90
+                         numAleatorio = random.nextInt(90) + 1;
+                         if (!numerosUtilizados.contains(numAleatorio)) {
+                              numAleatorio2=numAleatorio;
+                             // System.out.println(numAleatorio);
+                             numerosUtilizados.add(numAleatorio);
+                         }
+                     }
+                    Bombo.comprobarNumeroBombo(numAleatorio2, carton.getCarton(), matrizAuxiliar.getMatrizNumerosNoLidos());
+                    break;
+                    case 3:
+                        boolean linea = Bombo.comprobarLinea(matrizAuxiliar.getMatrizNumerosNoLidos());
+                        Cartera.añadir("Recuento", linea);
+                        if (linea == true) {
+                            Cartera.lerFicheiro("Recuento");
+                        }
+                        break;
+                    case 4:
+                        boolean bingo = Bombo.comprobarBingo(matrizAuxiliar.getMatrizNumerosNoLidos());
+                        if (bingo == true) {
+                            Cartera.añadirBingo("Recuento", true);
+                        }
+                        break;
+                    case 5:
+
+                       // Metodos.visualizar(matrizAuxiliar.getMatrizNumerosNoLidos());
 
 
-                break;
+                        break;
 
-            case 3:
-                boolean linea = Bombo.comprobarLinea(matrizAuxiliar.getMatrizNumerosNoLidos());
-                Cartera.añadir("Recuento", linea);
-                if (linea == true) {
-                    Cartera.lerFicheiro("Recuento");
+                    case 6:
+                        System.exit(0);
+                        break;
+                     default:
+                         throw new IllegalStateException("Unexpected value: " + num);
                 }
-                break;
-            case 4:
-                boolean bingo = Bombo.comprobarBingo(matrizAuxiliar.getMatrizNumerosNoLidos());
-                if (bingo==true) {
-                    Cartera.añadirBingo("Recuento", bingo);
-                }
-                break;
-            case 5:
 
-                Metodos.visualizar(matrizAuxiliar.getMatrizNumerosNoLidos());
-
-
-                break;
-
-            case 6:
-                System.exit(0);
         }
     }
-}
 
