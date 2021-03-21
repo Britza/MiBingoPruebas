@@ -1,7 +1,7 @@
 package com.MiBingoPruebas.juego;
 
-
 import java.util.Random;
+import metodos.Metodos;
 
 public class Carton {
 
@@ -81,27 +81,14 @@ public class Carton {
         return bombo;
     }
 
-    public static void imprimirCarton(int[][] carton) {
-
-        for (int i = 0; i < carton.length; i++) {
-            //Para visualizar unha matriz de números en non unha fila de números
-            System.out.println(" \n ");
-            for (int j = 0; j < carton[i].length; j++) {
-                System.out.printf("%3d ", carton[i][j]); //%imprime una variable, utiliza al menos 3 espacios para mostrar rellenando segun sea necesrio ,d la variable será entera
-
-            }
-        }
-    }
 
     public static void comprarCarton() {
         Carton carton = Carton.getInstace();
         Auxiliar matrizNumerosNoLidos = Auxiliar.getInstace();
-        Carton.imprimirCarton(matrizNumerosNoLidos.getMatrizNumerosNoLidos());
-        System.out.println("\n\n");
         Carton.generarCarton(carton.getCarton());
         Carton.bombos(carton.getCarton());
-        Carton.imprimirCarton(carton.getCarton());
-
+        setCarton(carton.getCarton());
+        Metodos.visualizar(carton.getCarton());
 
     }
 
