@@ -1,5 +1,5 @@
 # PROYECTO BINGO
-##Descripción :
+## Descripción :
 Juego Bingo de modalidad 90 (las bolas del bombo van desde 1 al 90)
 ## Esquema
 #### 1. Crear cartones.
@@ -12,7 +12,7 @@ Los cartones se visualizan con un system.printfn("3%d",carton); que permite visu
 carton separado y en forma matricial.
 #### 4. Visualizar nº aleatorio.
 #### 5. Tachar número que salga en el cartón.
-Se guarda la posicion del número que ha salido del cartón en una matriz auxiliar de 0. Cuando sale un número
+Se guarda la posición del número que ha salido del cartón en una matriz auxiliar de 0. Cuando sale un número
 se pone un uno en la posición correspondiente a este.
 #### 6. Volver a visualizar cartón.
 #### 7. Comprobar si hay linea.
