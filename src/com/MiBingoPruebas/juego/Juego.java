@@ -12,11 +12,11 @@ public class Juego {
     private static final String ANSI_PURPLE = "\u001B[35m";
     private static final String ANSI_RESET = "\u001B[0m";
     static Carton carton = Carton.getInstace();
-    static Auxiliar matrizAuxiliar = Auxiliar.getInstace();
+    public static Auxiliar matrizAuxiliar = Auxiliar.getInstace();
     private static String nombreJugador;
     static int numALeatorio;
     static         int cont = 0;
-
+    static boolean lineaCanta=false;
 
     /**
      * Método que permite elegir la opción de juego deseada (comprar carton, cantar linea...)
@@ -46,18 +46,24 @@ public class Juego {
                 } else {
                     System.out.printf("%3d", numALeatorio);
                 }
-                if (linea == false && bingo == false && cont==50) {
+               /* if (linea == false && bingo == false && cont==70) {
                     System.out.println("\nMala suerte, otra vez será");
                     System.exit(0);
                 }
+
+                */
                 break;
             case 3:
                 boolean linea1 = Bombo.comprobarLinea(matrizAuxiliar.getMatrizNumerosNoLidos());
-                if (linea1 == true) {
+                if (linea1 == true &&lineaCanta==false) {
                     System.out.println("\nLinea");
+                    lineaCanta=true;
                     Cartera.añadirLinea("Recuento", nombreJugador);
                     Cartera.lerFicheiro("Recuento");
-                }else
+                }else if (linea1==true && linea1==true){
+                    System.out.println("Ya has cantado linea");
+                }
+                    else
                     System.out.println("\nSigue intentandolo");
                 break;
             case 4:
@@ -66,6 +72,7 @@ public class Juego {
                     System.out.println("\nBingo");
                     Cartera.añadirBingo("Recuento", nombreJugador);
                     Cartera.lerFicheiro("Recuento");
+                    System.out.println("\nFin del programa");
                     System.exit(0);
                 }else
                     System.out.println("\nSigue intentandolo");
@@ -86,9 +93,7 @@ public class Juego {
 
     }
 
-    public static void sacarNumerosBombo(boolean linea, boolean bingo) {
 
-    }
 }
 
 
