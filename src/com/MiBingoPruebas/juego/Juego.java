@@ -46,12 +46,12 @@ public class Juego {
                 } else {
                     System.out.printf("%3d", numALeatorio);
                 }
-               /* if (linea == false && bingo == false && cont==70) {
+                if (linea == false && bingo == false && cont==70) {
                     System.out.println("\nMala suerte, otra vez será");
                     System.exit(0);
                 }
 
-                */
+
                 break;
             case 3:
                 boolean linea1 = Bombo.comprobarLinea(matrizAuxiliar.getMatrizNumerosNoLidos());

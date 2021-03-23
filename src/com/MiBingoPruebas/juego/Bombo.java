@@ -14,7 +14,7 @@ public class Bombo {
 
     public static int numerosSinRepeticion() {
         Random random = new Random();
-        int numAleatorio = 0, numAleatorio2 = 0;
+        int numAleatorio = 0;
         Set<Integer> numerosUtilizados = new TreeSet<>();
         //Vamos a   generar numeros aleatorios
         while (numerosUtilizados.size() < 89) {
