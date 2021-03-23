@@ -79,7 +79,7 @@ public class Bombo {
                     }
                 }
             }
-            System.out.println(cont);
+           // System.out.println(cont);
 
         }
         if (bingo) {
@@ -108,14 +108,14 @@ public class Bombo {
                     }
                 }
             }
-            System.out.println(cont);
+            //System.out.println(cont);
             cont = 0;
 
         }
         if (linea) {
-            System.out.println("LINEA");
+            System.out.println("\nLINEA");
         } else
-            System.out.println("Sigue intentandolo");
+            System.out.println("\nSigue intentandolo");
         return linea;
 
     }
