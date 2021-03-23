@@ -5,9 +5,9 @@ import metodos.Metodos;
 
 public class Carton {
 
-    private static Carton instance = null;
-    private static int[][] carton = new int[3][9];
 
+    private static int[][] carton = new int[3][9];
+    private static Carton instance = null;
 
     public Carton() {
     }

@@ -24,23 +24,23 @@ public class Bingo {
 
 
             if (seleccion == 0) {
-                Bombo.jugar(1);
+                Juego.jugar(1);
             }
             if (seleccion == 1) {
-                Bombo.jugar(2);
+                Juego.jugar(2);
             }
             if (seleccion == 2) {
-                Bombo.jugar(3);
+                Juego.jugar(3);
             }
             if (seleccion == 3) {
-                Bombo.jugar(4);
+                Juego.jugar(4);
             }
             if (seleccion == 4) {
-                Bombo.jugar(5);
+                Juego.jugar(5);
 
             }
             if (seleccion == 5) {
-                Bombo.jugar(6);
+                Juego.jugar(6);
                 saida = 6;
 
             }

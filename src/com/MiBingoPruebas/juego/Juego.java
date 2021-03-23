@@ -3,7 +3,7 @@ package com.MiBingoPruebas.juego;
 import com.MiBingoPruebas.cartera.Cartera;
 import metodos.Metodos;
 
-import static com.MiBingoPruebas.juego.Bombo.numerosSinRepeticion;
+import static com.MiBingoPruebas.juego.Bombo.*;
 
 public class Juego {
 
@@ -12,6 +12,10 @@ public class Juego {
     static Carton carton = Carton.getInstace();
     static Auxiliar matrizAuxiliar = Auxiliar.getInstace();
 
+    /**
+     *Método que permite elegir la opción de juego deseada (comprar carton, cantar linea...)
+     * @param num número que recibe de la clase Bingo que le indica que opción debe ejecutra
+     */
     public static void jugar(int num) {
 
         int numALeatorio = numerosSinRepeticion();
