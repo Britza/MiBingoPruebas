@@ -6,6 +6,7 @@ import metodos.Metodos;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class Bombo {
 
@@ -43,22 +44,19 @@ public class Bombo {
      * @param matrizNumerosNoLidos matriz auxiliar complementaria al cartón
      */
 
-    public static void comprobarNumeroBombo(int num, int[][] carton, int[][] matrizNumerosNoLidos) {
+    public static boolean comprobarNumeroBombo(int num, int[][] carton, int[][] matrizNumerosNoLidos) {
         boolean atopado = false;
         for (int i = 0; i < carton.length; i++) {
             for (int j = 0; j < carton[i].length; j++) {
                 if (num == carton[i][j]) {
                     atopado = true;
-                    System.out.println(num+"\nAtopado");
+                    //System.out.println(num+"\nAtopado");
                     matrizNumerosNoLidos[i][j] = 1;
                     // return atopado;
                 }
             }
         }
-        if (!atopado) {
-
-            System.out.println(num+"\nO numero non está no arrai");
-        }
+        return atopado;
     }
 
     /**
@@ -79,14 +77,12 @@ public class Bombo {
                     }
                 }
             }
-            System.out.println(cont);
-
         }
-        if (bingo) {
-            System.out.println("Bingo");
+        /*if (bingo) {
+            System.out.println("\n Bingo");
         } else {
-            System.out.println("Sigue intentandolo");
-        }
+            System.out.println("\n Sigue intentandolo");
+        }*/
         return bingo;
     }
 
@@ -108,14 +104,12 @@ public class Bombo {
                     }
                 }
             }
-            System.out.println(cont);
             cont = 0;
-
         }
-        if (linea) {
-            System.out.println("LINEA");
+        /*if (linea) {
+            System.out.println("\n LINEA");
         } else
-            System.out.println("Sigue intentandolo");
+            System.out.println("\n Sigue intentandolo");*/
         return linea;
 
     }
@@ -125,43 +119,5 @@ public class Bombo {
      *
      * @param num el número recibido se extrae de la opción elegida por el jugador
      */
-    public static void jugar(int num) {
-        Carton carton = Carton.getInstace();
-        Auxiliar matrizAuxiliar = Auxiliar.getInstace();
 
-        switch (num) {
-            case 1:
-                Carton.comprarCarton();
-                break;
-            case 2:
-                int numAleatorio=numerosSinRepeticion();
-                Bombo.comprobarNumeroBombo(numAleatorio, carton.getCarton(), matrizAuxiliar.getMatrizNumerosNoLidos());
-
-
-                break;
-
-            case 3:
-                boolean linea = Bombo.comprobarLinea(matrizAuxiliar.getMatrizNumerosNoLidos());
-                Cartera.añadir("Recuento", linea);
-                if (linea == true) {
-                    Cartera.lerFicheiro("Recuento");
-                }
-                break;
-            case 4:
-                boolean bingo = Bombo.comprobarBingo(matrizAuxiliar.getMatrizNumerosNoLidos());
-                if (bingo==true) {
-                    Cartera.añadirBingo("Recuento", bingo);
-                }
-                break;
-            case 5:
-
-                Metodos.visualizar(matrizAuxiliar.getMatrizNumerosNoLidos());
-
-
-                break;
-
-            case 6:
-                System.exit(0);
-        }
-    }
 }

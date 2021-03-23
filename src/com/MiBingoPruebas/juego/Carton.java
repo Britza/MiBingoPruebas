@@ -40,7 +40,8 @@ public class Carton {
                     if (j == 0) {
                         carton[i][j] = aleatorio.nextInt(7) + 1; // La priemra columna tendra siempre números del 0 al 9
                     } else {
-                        carton[i][j] = aleatorio.nextInt(8) + (10 * j); // El resto de columnas tienen números que van desde j*10+un número aleatorio del 1 al 9 ejemplo columna cuatro del 40 al 49
+                        carton[i][j] = aleatorio.nextInt(8) + (10 * j); /* El resto de columnas tienen números que van desde j*10+un número
+                         aleatorio del 1 al 9 ejemplo columna cuatro del 40 al 49*/
                     }
                 } else {
                     if (i == 1) {
