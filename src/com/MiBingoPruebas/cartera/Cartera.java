@@ -25,12 +25,14 @@ public class Cartera {
 
     public static void añadir(String nomeFich,boolean linea){
         PrintWriter f=null;
+        int puntuacionInicial=0;
         File fich;
         try {
             FileWriter engadir= new FileWriter(new File(nomeFich+".txt"),true);//True para engadir ao final do ficheiro
             f= new PrintWriter(engadir);
             if (linea==true) {
-                f.println(150);
+                puntuacionInicial=puntuacionInicial+150;
+                f.println(puntuacionInicial);
             }
         }catch (IOException ex){
             System.out.println("erro "+ex.getMessage());
@@ -41,12 +43,14 @@ public class Cartera {
     }
     public static void añadirBingo(String nomeFich,boolean bingo){
         PrintWriter f=null;
+        int puntuacionInicial=0;
         File fich;
         try {
             FileWriter engadir= new FileWriter(new File(nomeFich+".txt"),true);//True para engadir ao final do ficheiro
             f= new PrintWriter(engadir);
             if (bingo==true){
-                f.println(500);
+                puntuacionInicial=puntuacionInicial+500;
+                f.println(puntuacionInicial);
             }
         }catch (IOException ex){
             System.out.println("erro "+ex.getMessage());
