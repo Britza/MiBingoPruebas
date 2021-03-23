@@ -21,5 +21,5 @@ se pone un uno en la posición correspondiente a este.
   La linea se comprueba contando la cantidad de unos por fila que hay en la matriz auxiliar.
 #### 8. Comprobar si hay bingo.
 El bingo se compprueba contando la cantidad de unos en total que hay en la matriz auxiliar.
-
 Se utiliza la libreria javax.swing.*; para poder visualizar el menu con opciones.
+El juego permite registrar en un fichero la puntuacion y el nombre de cada jugador
