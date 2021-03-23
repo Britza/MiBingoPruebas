@@ -82,11 +82,14 @@ public class Bombo {
            // System.out.println(cont);
 
         }
+        /*
         if (bingo) {
-            System.out.println("Bingo");
+            System.out.println("\nBingo");
         } else {
             System.out.println("Sigue intentandolo");
         }
+
+         */
         return bingo;
     }
 
@@ -112,10 +115,13 @@ public class Bombo {
             cont = 0;
 
         }
+        /*
         if (linea) {
             System.out.println("\nLINEA");
         } else
             System.out.println("\nSigue intentandolo");
+
+         */
         return linea;
 
     }
