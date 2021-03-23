@@ -78,11 +78,6 @@ public class Bombo {
                 }
             }
         }
-        /*if (bingo) {
-            System.out.println("\n Bingo");
-        } else {
-            System.out.println("\n Sigue intentandolo");
-        }*/
         return bingo;
     }
 
@@ -106,10 +101,6 @@ public class Bombo {
             }
             cont = 0;
         }
-        /*if (linea) {
-            System.out.println("\n LINEA");
-        } else
-            System.out.println("\n Sigue intentandolo");*/
         return linea;
 
     }
