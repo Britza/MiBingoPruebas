@@ -1,10 +1,15 @@
 package com.MiBingoPruebas.juego;
 
+import com.MiBingoPruebas.cartera.Cartera;
+import metodos.Metodos;
+
+import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
 
 public class Bombo {
+
     /**
      * Método que crea un  número aleatorio del 1 al 90 y si no estan en la coleccion de numerosyutilizados
      * lo añade
@@ -12,23 +17,22 @@ public class Bombo {
      * @return devuelve un numero aleatorio.
      */
 
-    public static int numerosSinRepeticion() {
-        Random random = new Random();
+    public static int numerosSinRepeticion(){
+        Random random=new Random();
         int numAleatorio = 0;
-        Set<Integer> numerosUtilizados = new TreeSet<>();
-        //Vamos a   generar numeros aleatorios
-        if (numerosUtilizados.size() < 89) {
+        //Conjunto de números ya utilizados
+        Set<Integer> numerosUtilizados=new HashSet<>();
+        //Vamos a   generar numeros aleatorios 20
+        while (numerosUtilizados.size()<90){
             //Vamos a generar un numero entre el 1 y el 90
-            numAleatorio = random.nextInt(90) + 1;
-            if (!numerosUtilizados.contains(numAleatorio)) {
+            numAleatorio= random.nextInt(90)+1;
+            if (!numerosUtilizados.contains(numAleatorio)){
                 // System.out.println(numAleatorio);
                 numerosUtilizados.add(numAleatorio);
             }
-
         }
         return numAleatorio;
     }
-
 
     /**
      * Método que recibe como parametros un número sacado por el bombo , el carton y una matriz auxiliar. Si el número
@@ -46,18 +50,12 @@ public class Bombo {
             for (int j = 0; j < carton[i].length; j++) {
                 if (num == carton[i][j]) {
                     atopado = true;
-                    // System.out.println(num + "\nAtopado");
+                    //System.out.println(num+"\nAtopado");
                     matrizNumerosNoLidos[i][j] = 1;
                     // return atopado;
                 }
             }
         }
-      /*  if (!atopado) {
-
-           // System.out.println(num + "\nO numero non está no arrai");
-        }
-
-       */
         return atopado;
     }
 
@@ -79,17 +77,7 @@ public class Bombo {
                     }
                 }
             }
-           // System.out.println(cont);
-
         }
-        /*
-        if (bingo) {
-            System.out.println("\nBingo");
-        } else {
-            System.out.println("Sigue intentandolo");
-        }
-
-         */
         return bingo;
     }
 
@@ -111,20 +99,16 @@ public class Bombo {
                     }
                 }
             }
-            //System.out.println(cont);
             cont = 0;
-
         }
-        /*
-        if (linea) {
-            System.out.println("\nLINEA");
-        } else
-            System.out.println("\nSigue intentandolo");
-
-         */
         return linea;
 
     }
 
-}
+    /**
+     * Método que permite elegir la opción de juego deseada (comprar carton, cantar linea...)
+     *
+     * @param num el número recibido se extrae de la opción elegida por el jugador
+     */
 
+}

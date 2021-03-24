@@ -63,7 +63,7 @@ public class Juego {
                 }else if (linea1==true && linea1==true){
                     System.out.println("Ya has cantado linea");
                 }
-                    else
+                else
                     System.out.println("\nSigue intentandolo");
                 break;
             case 4:
@@ -95,7 +95,3 @@ public class Juego {
 
 
 }
-
-
-
-
