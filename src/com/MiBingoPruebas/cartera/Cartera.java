@@ -6,24 +6,26 @@ import java.util.Scanner;
 public class Cartera {
     /**
      * Método que escribe el nombre de un jugador en un fichero. Se le pasa por parametros el nombre del fichero y el nombre del jugador
-     * @param nomeFich nombre del fichero
+     *
+     * @param nomeFich      nombre del fichero
      * @param nombreJugador nombre del jugador
      */
-    public static void escribirNombre(String nomeFich,String nombreJugador){
-        File fi = new File(nomeFich+".txt");
+    public static void escribirNombre(String nomeFich, String nombreJugador) {
+        File fi = new File(nomeFich + ".txt");
         PrintWriter escribir = null;
         try {
-           escribir=new PrintWriter(nomeFich);
-           escribir.println(nombreJugador);
-        } catch (FileNotFoundException ex){
-            System.out.println("erro escribirNumeros "+ex.toString());
-        }finally {
+            escribir = new PrintWriter(nomeFich);
+            escribir.println(nombreJugador);
+        } catch (FileNotFoundException ex) {
+            System.out.println("erro escribirNumeros " + ex.toString());
+        } finally {
             escribir.close();
         }
     }
 
     /**
      * Método que lee lo que hay en un fichero (se le pasa por parametros) y devuelve lo que leyo del fichero
+     *
      * @param nomFich
      * @return devuelve los datos leidos del fichero
      */
@@ -48,8 +50,9 @@ public class Cartera {
 
     /**
      * Método que añade al fichero la puntuación obtenida por un jugador si ha cantado linea
+     *
      * @param nomeFich recibe el nombre del fichero
-     * @param nombre recibe el nombre del jugador
+     * @param nombre   recibe el nombre del jugador
      */
 
     public static void añadirLinea(String nomeFich, String nombre) {
@@ -69,9 +72,11 @@ public class Cartera {
         f.close();
 
     }
+
     /**
      * Método que añade al fichero la puntuación obtenida por un jugador si ha cantado bingo
-     * @param nomeFich recibe el nombre del fichero
+     *
+     * @param nomeFich      recibe el nombre del fichero
      * @param nombreJugador recibe el nombre del jugador
      */
     public static void añadirBingo(String nomeFich, String nombreJugador) {

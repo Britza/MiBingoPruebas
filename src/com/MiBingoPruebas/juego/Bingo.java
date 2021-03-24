@@ -4,7 +4,7 @@ package com.MiBingoPruebas.juego;
 import javax.swing.*;
 
 /**
- * @author Britza y Patrica
+ * @author Britza Zegarra y Patrica Maceiras
  * @version 0.1
  */
 public class Bingo {
@@ -12,7 +12,7 @@ public class Bingo {
     public static void main(String[] args) {
         System.out.println("BINGO");
 
-        int saida=0;
+        int saida = 0;
 
         do {
             String[] options = {"Comprar carton", "jugar", "cantar linea", "cantar bingo", "comprobar", "Fin"};

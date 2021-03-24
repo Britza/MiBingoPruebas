@@ -1,12 +1,8 @@
 package com.MiBingoPruebas.juego;
 
-import com.MiBingoPruebas.cartera.Cartera;
-import metodos.Metodos;
-
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
-import java.util.TreeSet;
 
 public class Bombo {
 
@@ -17,16 +13,16 @@ public class Bombo {
      * @return devuelve un numero aleatorio.
      */
 
-    public static int numerosSinRepeticion(){
-        Random random=new Random();
+    public static int numerosSinRepeticion() {
+        Random random = new Random();
         int numAleatorio = 0;
         //Conjunto de números ya utilizados
-        Set<Integer> numerosUtilizados=new HashSet<>();
+        Set<Integer> numerosUtilizados = new HashSet<>();
         //Vamos a   generar numeros aleatorios 20
-        while (numerosUtilizados.size()<90){
+        while (numerosUtilizados.size() < 90) {
             //Vamos a generar un numero entre el 1 y el 90
-            numAleatorio= random.nextInt(90)+1;
-            if (!numerosUtilizados.contains(numAleatorio)){
+            numAleatorio = random.nextInt(90) + 1;
+            if (!numerosUtilizados.contains(numAleatorio)) {
                 // System.out.println(numAleatorio);
                 numerosUtilizados.add(numAleatorio);
             }

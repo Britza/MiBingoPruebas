@@ -2,7 +2,7 @@ package com.MiBingoPruebas.juego;
 
 public class Auxiliar {
 
-    private int[][]matrizNumerosNoLidos=new int[3][9];
+    private int[][] matrizNumerosNoLidos = new int[3][9];
 
     private static Auxiliar instance = null;
 
@@ -15,15 +15,16 @@ public class Auxiliar {
 
     /**
      * Método que comprueba si se ha instanciado un Auxiliar, si se ha instanciado se devuelve la instancia y si no se crea
+     *
      * @return devuelve la instancia del Auxiliar
      */
 
     public static Auxiliar getInstace() {
-        if (instance==null){
-            instance=new Auxiliar();
+        if (instance == null) {
+            instance = new Auxiliar();
 
         }
-            return instance;
+        return instance;
 
     }
 

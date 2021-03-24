@@ -1,7 +1,8 @@
 package com.MiBingoPruebas.juego;
 
-import java.util.Random;
 import metodos.Metodos;
+
+import java.util.Random;
 
 public class Carton {
 
@@ -10,13 +11,14 @@ public class Carton {
     private static Carton instance = null;
 
     /**
-     *Constructor sin parametros clase carton
+     * Constructor sin parametros de la clase Carton
      */
     public Carton() {
     }
 
     /**
      * Método que comprueba si se ha instanciado un carton, si se ha instanciado se devuelve la instancia y si no se crea
+     *
      * @return devuelve la instancia del Carton
      */
 
@@ -39,6 +41,7 @@ public class Carton {
 
     /**
      * Método que rellena una matriz de ceros con números aleatorios y los ordena las columnas por decenas (ej: columna 1: 1-10; columna 2: 11-20...)
+     *
      * @param carton recibe una matriz de enteros no instanciada
      */
     public static void generarCarton(int[][] carton) {
@@ -73,6 +76,7 @@ public class Carton {
 
     /**
      * Método que añade 0 en la matriz carton
+     *
      * @param carton recibe la matriz carton
      * @return devuelve el bombo(0) en la posicion fijada
      */

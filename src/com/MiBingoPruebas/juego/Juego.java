@@ -15,8 +15,8 @@ public class Juego {
     public static Auxiliar matrizAuxiliar = Auxiliar.getInstace();
     private static String nombreJugador;
     static int numALeatorio;
-    static         int cont = 0;
-    static boolean lineaCanta=false;
+    static int cont = 0;
+    static boolean lineaCanta = false;
 
     /**
      * Método que permite elegir la opción de juego deseada (comprar carton, cantar linea...)
@@ -46,7 +46,7 @@ public class Juego {
                 } else {
                     System.out.printf("%3d", numALeatorio);
                 }
-                if (linea == false && bingo == false && cont==70) {
+                if (linea == false && bingo == false && cont == 70) {
                     System.out.println("\nMala suerte, otra vez será");
                     System.exit(0);
                 }
@@ -55,15 +55,14 @@ public class Juego {
                 break;
             case 3:
                 boolean linea1 = Bombo.comprobarLinea(matrizAuxiliar.getMatrizNumerosNoLidos());
-                if (linea1 == true &&lineaCanta==false) {
+                if (linea1 == true && lineaCanta == false) {
                     System.out.println("\nLinea");
-                    lineaCanta=true;
+                    lineaCanta = true;
                     Cartera.añadirLinea("Recuento", nombreJugador);
                     Cartera.lerFicheiro("Recuento");
-                }else if (linea1==true && linea1==true){
+                } else if (linea1 == true && linea1 == true) {
                     System.out.println("Ya has cantado linea");
-                }
-                else
+                } else
                     System.out.println("\nSigue intentandolo");
                 break;
             case 4:
@@ -74,7 +73,7 @@ public class Juego {
                     Cartera.lerFicheiro("Recuento");
                     System.out.println("\nFin del programa");
                     System.exit(0);
-                }else
+                } else
                     System.out.println("\nSigue intentandolo");
                 break;
             case 5:
